@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { PagesComponent } from './pages/pages.component';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
+    RouterOutlet
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

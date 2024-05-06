@@ -17,5 +17,8 @@ import { BreadcrumbsComponent } from '../shared/breadcrumbs/breadcrumbs.componen
   templateUrl: './pages.component.html',
 })
 export class PagesComponent {
+  constructor () {
+    console.log("estoy en pages");
+  }
 
 }

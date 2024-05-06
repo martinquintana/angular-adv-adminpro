@@ -1,23 +1,38 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { ProgressComponent } from './pages/progress/progress.component';
-import { Grafica1Component } from './pages/grafica1/grafica1.component';
-import { NotpagefoundComponent } from './pages/notpagefound/notpagefound.component';
+import { NotpagefoundComponent } from './notpagefound/notpagefound.component';
 import { PagesComponent } from './pages/pages.component';
+import DashboardComponent from './pages/dashboard/dashboard.component';
+import ProgressComponent from './pages/progress/progress.component';
+import Grafica1Component from './pages/grafica1/grafica1.component';
 
 export const routes: Routes = [
+
     {
-        path: '', component: PagesComponent,
+        path: '',
+        component: PagesComponent, // this is the component with the <router-outlet> in the template
         children: [
-            { path: 'dashboard', component: DashboardComponent },
-            { path: 'progress', component: ProgressComponent },
-            { path: 'grafica1', component: Grafica1Component },
-            { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, 
-            // direcciona al dashboard  si no se especifica una ruta en la url
-        ]
+            {
+                path: 'dashboard', // child route path
+                component: DashboardComponent, // child route component that the router renders
+            },
+            {
+                path: 'progress',
+                component: ProgressComponent, // another child route component that the router renders
+            },
+            {
+                path: 'grafica1',
+                component: Grafica1Component, // another child route component that the router renders
+            },
+            {
+                path: '', redirectTo: 'dashboard', pathMatch: 'full'
+            },
+        ],
     },
+
+    // { path: '', component: PagesComponent },
 
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
